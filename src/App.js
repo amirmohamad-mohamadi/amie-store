@@ -24,13 +24,10 @@ class App extends React.Component {
 
         userRef.onSnapshot(snapShot => {
           setCurrentUser({
-            currentUser: {
-              id: snapShot.id,
-              ...snapShot.data()
-            }
+            id: snapShot.id,
+            ...snapShot.data()
           });
         });
-        console.log(this.state);
       }
       setCurrentUser(userAuth);
     });
@@ -56,7 +53,7 @@ class App extends React.Component {
 };
 
 const mapStateToProps = createStructuredSelector({
-  selectCurrentUser
+  currentUser: selectCurrentUser,
 })
 
 const mapDispatchToProps = dispatch => ({
